@@ -63,8 +63,8 @@ func NewManager(providerName, cookieName string, maxLifeTime int64) (*Manager, e
 		return nil, fmt.Errorf("session: unknown provider %q (forgotten import?)", providerName)
 	}
 	return &Manager{
-		cookieName: cookieName,
-		// lock:        sync.Mutex{},
+		cookieName:  cookieName,
+		lock:        sync.Mutex{},
 		provider:    provider,
 		maxLifeTime: maxLifeTime,
 	}, nil
