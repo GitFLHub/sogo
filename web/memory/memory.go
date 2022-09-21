@@ -4,6 +4,8 @@ import (
 	"container/list"
 	"sync"
 	"time"
+
+	"github.com/GitFLHub/sogo/web/session"
 )
 
 type Provider struct {
@@ -12,11 +14,11 @@ type Provider struct {
 	list     *list.List               // list 是 package List 是 Structure
 }
 
-func (pder *Provider) SessionInit(sid string)(session.Session, error) {
+func (pder *Provider) SessionInit(sid string) (session.Session, error) {
 	pder.lock.Lock()
 	defer pder.lock.Unlock()
-	v:=make(map[interface{}]interface{},0)
-	newsess := &SessionStore{sid: sid,timeAccessed: time.Now(), value: v}
+	v := make(map[interface{}]interface{}, 0)
+	newsess := &SessionStore{sid: sid, timeAccessed: time.Now(), value: v}
 	ele
 }
 
